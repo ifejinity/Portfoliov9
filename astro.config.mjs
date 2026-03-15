@@ -16,6 +16,9 @@ export default defineConfig({
   },
   adapter: vercel(),
   integrations: [
-    sitemap()
+    sitemap(),
+    db({
+      mode: 'node'
+    })
   ],
 });

@@ -1,6 +1,9 @@
 ---
 import "../styles/global.css";
-import Layout from "../layouts/Layout.astro"
+import Layout from "../layouts/Layout.astro";
+import { db, Experiences } from "astro:db";
+
+const experiences = await db.select().from(Experiences);
 ---
 
 <Layout>
@@ -149,29 +152,44 @@ import Layout from "../layouts/Layout.astro"
             <!-- Experience -->
             <section>
                 <h2 class="text-sm font-semibold tracking-widest text-slate-500 mb-4">EXPERIENCE</h2>
-
                 <div class="space-y-5 text-sm">
-
-                <div>
-                    <div class="flex justify-between">
-                    <h3 class="font-medium">Freelance Software Developer</h3>
-                    <span class="text-slate-400">Present</span>
-                    </div>
-                    <p class="text-slate-600 mt-1">
-                    Developing full-stack web applications and systems for
-                    clients using Laravel, Vue.js, and Tailwind CSS.
-                    </p>
-                    <ul class="list-disc ml-5 text-slate-600 mt-2 space-y-1">
-                    <li>Designing scalable backend systems</li>
-                    <li>Building reusable Vue components</li>
-                    <li>Integrating third-party APIs and services</li>
-                    <li>Deploying applications to cloud platforms</li>
-                    </ul>
-                </div>
-
+                    <!-- <div>
+                        <div class="flex justify-between">
+                        <h3 class="font-medium">Freelance Software Developer</h3>
+                        <span class="text-slate-400">Present</span>
+                        </div>
+                        <p class="text-slate-600 mt-1">
+                        Developing full-stack web applications and systems for
+                        clients using Laravel, Vue.js, and Tailwind CSS.
+                        </p>
+                        <ul class="list-disc ml-5 text-slate-600 mt-2 space-y-1">
+                        <li>Designing scalable backend systems</li>
+                        <li>Building reusable Vue components</li>
+                        <li>Integrating third-party APIs and services</li>
+                        <li>Deploying applications to cloud platforms</li>
+                        </ul>
+                    </div> -->
+                    {
+                        experiences.map(({description, title}) => (
+                            <div>
+                                <div class="flex justify-between">
+                                    <h3 class="font-medium">{title}</h3>
+                                    <span class="text-slate-400">Present</span>
+                                </div>
+                                <p class="text-slate-600 mt-1">
+                                    {description}
+                                </p>
+                                <ul class="list-disc ml-5 text-slate-600 mt-2 space-y-1">
+                                    <li>Designing scalable backend systems</li>
+                                    <li>Building reusable Vue components</li>
+                                    <li>Integrating third-party APIs and services</li>
+                                    <li>Deploying applications to cloud platforms</li>
+                                </ul>
+                            </div>
+                        ))
+                    }
                 </div>
             </section>
         </div>
     </div>
-
 </Layout>
