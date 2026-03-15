@@ -7,71 +7,18 @@ import Header from "../components/Header.astro";
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="ico" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/favicon.ico">
 	<slot name="header"/>
 </head>
 
 <body class="bg-white text-slate-800 font-sans">
     <main class="max-w-5xl mx-auto px-6 py-12">
 		<Header/>
-		<div class="grid md:grid-cols-3 gap-10">
-			<!-- Left Column -->
-			<aside class="space-y-10">
-				<!-- Skills -->
-				<section>
-					<h2 class="text-sm font-semibold tracking-widest text-slate-500 mb-3">SKILLS</h2>
-					<ul class="text-sm space-y-1">
-					<li>Full-stack Web Development</li>
-					<li>Responsive UI Development</li>
-					<li>API Integration</li>
-					<li>REST API Design</li>
-					<li>Database Design</li>
-					<li>Performance Optimization</li>
-					<li>Component Based Architecture</li>
-					</ul>
-				</section>
-				
-				<!-- Tech Stack -->
-				<section>
-					<h2 class="text-sm font-semibold tracking-widest text-slate-500 mb-3">TECH STACK</h2>
 
-					<div class="space-y-3 text-sm">
-					<div>
-						<p class="font-medium">Frontend</p>
-						<p class="text-slate-600">HTML, CSS, JavaScript, TypeScript, Vue 3, Nuxt 3, Tailwind CSS, SASS</p>
-					</div>
+		<slot/>
 
-					<div>
-						<p class="font-medium">Backend</p>
-						<p class="text-slate-600">PHP, Laravel, REST APIs</p>
-					</div>
-
-					<div>
-						<p class="font-medium">Database</p>
-						<p class="text-slate-600">MySQL, SQLite</p>
-					</div>
-
-					<div>
-						<p class="font-medium">Tools</p>
-						<p class="text-slate-600">Vite, Git, Vercel, Contentful</p>
-					</div>
-					</div>
-				</section>
-
-				<!-- Highlights -->
-				<section>
-					<h2 class="text-sm font-semibold tracking-widest text-slate-500 mb-3">HIGHLIGHTS</h2>
-					<ul class="text-sm space-y-1 text-slate-700">
-					<li>Builds scalable full-stack applications</li>
-					<li>Strong focus on clean UI and performance</li>
-					<li>Experienced with headless CMS integrations</li>
-					<li>Creates reusable Vue components</li>
-					</ul>
-				</section>
-
-			</aside>
-			<slot/>
-		</div>
 		<footer class="mt-14 pt-6 border-t text-xs text-slate-400 text-center">
 			© {new Date().getFullYear()} Jeffrey Lonzanida
 		</footer>

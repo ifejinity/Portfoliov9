@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jeffreylonzanida2.vercel.app/sitemap-index.xml
