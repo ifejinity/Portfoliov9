@@ -1,6 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import my_image from "../assets/me.jpg";
+---
+
 <header class="border-b pb-6 mb-10">
-    <h1 class="text-3xl font-bold">Jeffrey Lonzanida</h1>
-    <p class="text-sm text-slate-500 mt-1">Software Engineer</p>
+    <div
+        class="flex gap-5 w-fit">
+        <Image
+            src={my_image}
+            alt="Jeffrey Lonzanida, Software Engineer"
+            class="rounded-lg aspect-square object-cover object-top size-24 row-span-2"
+            loading="lazy"
+        />
+        <div class="self-end">
+            <h1 class="text-3xl font-bold">Jeffrey Lonzanida</h1>
+            <p class="text-sm text-slate-500 mt-1">Software Engineer</p>
+        </div>
+    </div>
+    
 
     <div class="flex flex-wrap gap-x-6 gap-y-1 text-sm mt-3 text-slate-600">
         <span>Philippines</span>
