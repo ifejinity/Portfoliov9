@@ -1,11 +1,144 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro"
 ---
 
 <Layout>
-	<Welcome />
+    <div slot="header">
+        <title>Jeffrey Lonzanida | Software Engineer</title>
+
+        <!-- Basic SEO -->
+        <meta name="title" content="Jeffrey Lonzanida | Software Engineer">
+        <meta name="description" content="Jeffrey Lonzanida is a full-stack software developer specializing in Laravel, Vue.js, Nuxt, and Tailwind CSS. Explore projects, skills, and experience in modern web development.">
+        <meta name="keywords" content="Jeffrey Lonzanida, Software Developer, Full Stack Developer, Laravel Developer, Vue Developer, Nuxt Developer, Tailwind CSS, Web Developer Philippines">
+        <meta name="author" content="Jeffrey Lonzanida">
+        <meta name="robots" content="index, follow">
+
+        <!-- Canonical -->
+        <link rel="canonical" href="https://jeffreylonzanida.com">
+
+        <!-- Open Graph (Facebook / LinkedIn) -->
+        <meta property="og:title" content="Jeffrey Lonzanida | Software Engineer">
+        <meta property="og:description" content="Portfolio of Jeffrey Lonzanida — full-stack developer building modern web applications with Laravel, Vue, and Tailwind CSS.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://jeffreylonzanida.com">
+        <meta property="og:image" content="https://jeffreylonzanida.com/og-image.png">
+        <meta property="og:site_name" content="Jeffrey Lonzanida">
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Jeffrey Lonzanida | Software Engineer">
+        <meta name="twitter:description" content="Portfolio of Jeffrey Lonzanida — full-stack developer specializing in Laravel, Vue, and Tailwind CSS.">
+        <meta name="twitter:image" content="https://jeffreylonzanida.com/og-image.png">
+
+        <!-- Theme -->
+        <meta name="theme-color" content="#020420">
+
+        <!-- Viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Favicons -->
+        <link rel="icon" type="image/png" href="/favicon.png">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    </div>
+
+    <div class="md:col-span-2 space-y-12">
+        <!-- About -->
+        <section>
+            <h2 class="text-sm font-semibold tracking-widest text-slate-500 mb-3">ABOUT</h2>
+            <p class="text-sm leading-relaxed text-slate-700">
+            I'm a software developer specializing in building modern and efficient web
+            applications. My primary stack includes Laravel, Vue.js, Nuxt, and
+            Tailwind CSS. I focus on creating maintainable systems, scalable APIs,
+            and clean user interfaces.
+            </p>
+
+            <p class="text-sm leading-relaxed text-slate-700 mt-3">
+            I enjoy solving complex problems, optimizing performance, and designing
+            developer-friendly architectures for both frontend and backend systems.
+            </p>
+        </section>
+        <!-- Projects -->
+        <section>
+            <h2 class="text-sm font-semibold tracking-widest text-slate-500 mb-4">PROJECTS</h2>
+
+            <div class="space-y-6 text-sm">
+
+            <div>
+                <div class="flex justify-between">
+                <h3 class="font-medium">Portfolio V7</h3>
+                <span class="text-slate-400">Nuxt 3 • Tailwind • Contentful</span>
+                </div>
+                <p class="text-slate-600 mt-1">
+                Personal developer portfolio that dynamically loads project
+                content from a headless CMS. Optimized for performance and
+                SEO using modern Nuxt features.
+                </p>
+                <ul class="list-disc ml-5 text-slate-600 mt-2 space-y-1">
+                <li>Dynamic project pages</li>
+                <li>Contentful CMS integration</li>
+                <li>Optimized images and SEO metadata</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="flex justify-between">
+                <h3 class="font-medium">Affordapos</h3>
+                <span class="text-slate-400">Laravel • Vue • Tailwind</span>
+                </div>
+                <p class="text-slate-600 mt-1">
+                Website platform showcasing POS systems and computer
+                peripherals including product features, bundles, and
+                service offerings.
+                </p>
+                <ul class="list-disc ml-5 text-slate-600 mt-2 space-y-1">
+                <li>Responsive product pages</li>
+                <li>Custom UI components</li>
+                <li>Optimized layout for product showcases</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="flex justify-between">
+                <h3 class="font-medium">Chermae Shop</h3>
+                <span class="text-slate-400">E-commerce</span>
+                </div>
+                <p class="text-slate-600 mt-1">
+                Online shop platform designed to showcase handmade crochet
+                products with simple product browsing and presentation.
+                </p>
+                <ul class="list-disc ml-5 text-slate-600 mt-2 space-y-1">
+                <li>Product listing interface</li>
+                <li>Lightweight design for small businesses</li>
+                </ul>
+            </div>
+
+            </div>
+        </section>
+        <!-- Experience -->
+        <section>
+            <h2 class="text-sm font-semibold tracking-widest text-slate-500 mb-4">EXPERIENCE</h2>
+
+            <div class="space-y-5 text-sm">
+
+            <div>
+                <div class="flex justify-between">
+                <h3 class="font-medium">Freelance Software Developer</h3>
+                <span class="text-slate-400">Present</span>
+                </div>
+                <p class="text-slate-600 mt-1">
+                Developing full-stack web applications and systems for
+                clients using Laravel, Vue.js, and Tailwind CSS.
+                </p>
+                <ul class="list-disc ml-5 text-slate-600 mt-2 space-y-1">
+                <li>Designing scalable backend systems</li>
+                <li>Building reusable Vue components</li>
+                <li>Integrating third-party APIs and services</li>
+                <li>Deploying applications to cloud platforms</li>
+                </ul>
+            </div>
+
+            </div>
+        </section>
+    </div>
 </Layout>
