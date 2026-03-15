@@ -1,10 +1,16 @@
 ---
 import "../styles/global.css";
-import { db, Experiences } from "astro:db";
+import { db, Experiences, TechStack } from "astro:db";
 import moment from "moment";
 import Layout from "../layouts/Layout.astro";
 
 const experiences = await db.select().from(Experiences);
+const tech_stack = await db.select().from(TechStack);
+const grouped_stack = tech_stack.reduce((acc, val) => {
+    if(!acc[val.type]) acc[val.type] = [];
+    acc[val.type].push(val.name);
+    return acc;
+}, Object());
 ---
 
 <Layout>
@@ -47,22 +53,22 @@ const experiences = await db.select().from(Experiences);
             <section>
                 <h2 class="text-sm font-semibold tracking-widest text-slate-500 mb-3">TECH STACK</h2>
                 <div class="space-y-3 text-sm">
-                <div>
-                    <p class="font-medium">Frontend</p>
-                    <p class="text-slate-600">HTML, CSS, JavaScript, TypeScript, Vue 3, Nuxt 3, Tailwind CSS, SASS</p>
-                </div>
-                <div>
-                    <p class="font-medium">Backend</p>
-                    <p class="text-slate-600">PHP, Laravel, REST APIs</p>
-                </div>
-                <div>
-                    <p class="font-medium">Database</p>
-                    <p class="text-slate-600">MySQL, SQLite</p>
-                </div>
-                <div>
-                    <p class="font-medium">Tools</p>
-                    <p class="text-slate-600">Vite, Git, Vercel, Contentful</p>
-                </div>
+                    {
+                        Object.entries(grouped_stack).map(([type, stack]) => (
+                        <div key={type}>
+                            <p class="font-medium">{type}</p>
+                            <div class="flex flex-wrap gap-2 mt-1">
+                                {(stack as string[]).map(item => (
+                                    <span 
+                                        key={item} 
+                                        class="bg-slate-100 text-slate-600 border-slate-500 border-[1px] px-2 py-1 text-xs">
+                                        {item}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                        ))
+                    }
                 </div>
             </section>
 
@@ -77,6 +83,7 @@ const experiences = await db.select().from(Experiences);
                 </ul>
             </section>
         </aside>
+
         <div class="md:col-span-2 space-y-12">
             <!-- About -->
             <section>
@@ -150,26 +157,11 @@ const experiences = await db.select().from(Experiences);
 
                 </div>
             </section>
+
             <!-- Experience -->
             <section>
                 <h2 class="text-sm font-semibold tracking-widest text-slate-500 mb-4">EXPERIENCE</h2>
                 <div class="space-y-5 text-sm">
-                    <!-- <div>
-                        <div class="flex justify-between">
-                        <h3 class="font-medium">Freelance Software Developer</h3>
-                        <span class="text-slate-400">Present</span>
-                        </div>
-                        <p class="text-slate-600 mt-1">
-                        Developing full-stack web applications and systems for
-                        clients using Laravel, Vue.js, and Tailwind CSS.
-                        </p>
-                        <ul class="list-disc ml-5 text-slate-600 mt-2 space-y-1">
-                        <li>Designing scalable backend systems</li>
-                        <li>Building reusable Vue components</li>
-                        <li>Integrating third-party APIs and services</li>
-                        <li>Deploying applications to cloud platforms</li>
-                        </ul>
-                    </div> -->
                     {
                         experiences.map((exp) => (
                             <div>

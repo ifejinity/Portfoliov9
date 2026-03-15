@@ -20,8 +20,20 @@ const Experiences = defineTable({
   },
 });
 
+const TechStack = defineTable({
+  columns: {
+    name: column.text({
+      unique: true
+    }),
+    type: column.text({
+      enum: ['Tools', 'Frontend', 'Backend', 'Others', 'Database']
+    })
+  }
+});
+
 export default defineDb({
   tables: {
-    Experiences
+    Experiences,
+    TechStack
   }
 });

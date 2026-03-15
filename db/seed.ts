@@ -1,7 +1,8 @@
-import { db, Experiences } from "astro:db";
+import { db, Experiences, TechStack } from "astro:db";
 
 export default async function seed() {
 	await db.delete(Experiences);
+	await db.delete(TechStack);
 
 	await db.insert(Experiences).values([
 		{
@@ -32,4 +33,91 @@ export default async function seed() {
 			]
 		}
 	]);
+
+	await db.insert(TechStack).values([
+		{
+			name: 'Javascript',
+			type: 'Frontend'
+		},
+		{
+			name: 'HTML',
+			type: 'Frontend'
+		},
+		{
+			name: 'Vue JS',
+			type: 'Frontend'
+		},
+		{
+			name: 'Nuxt JS',
+			type: 'Frontend'
+		},
+		{
+			name: 'Astro JS',
+			type: 'Frontend'
+		},
+		{
+			name: 'PrimeVue',
+			type: 'Frontend'
+		},
+		{
+			name: 'Sass',
+			type: 'Frontend'
+		},
+		{
+			name: 'CSS',
+			type: 'Frontend'
+		},
+		{
+			name: 'Tailwind CSS',
+			type: 'Frontend'
+		},
+		{
+			name: 'PHP',
+			type: 'Backend'
+		},
+		{
+			name: 'Laravel',
+			type: 'Backend'
+		},
+		{
+			name: 'REST APIs',
+			type: 'Backend'
+		},
+		{
+			name: 'Firebase',
+			type: 'Backend'
+		},
+		{
+			name: 'MySQL',
+			type: 'Database'
+		},
+		{
+			name: 'SQLite',
+			type: 'Database'
+		},
+		{
+			name: 'Git',
+			type: 'Tools'
+		},
+		{
+			name: 'Github',
+			type: 'Tools'
+		},
+		{
+			name: 'Postman',
+			type: 'Tools'
+		},
+		{
+			name: 'Vercel',
+			type: 'Tools'
+		},
+		{
+			name: 'Inertia JS',
+			type: 'Others'
+		},
+		{
+			name: 'Google Cloud',
+			type: 'Others'
+		}
+	])
 }
