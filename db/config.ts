@@ -10,7 +10,12 @@ const Experiences = defineTable({
       unique: true,
       optional: false
     }),
+    company: column.text(),
     description: column.text(),
+    start_at: column.date(),
+    end_at: column.date({
+      optional: true
+    }),
     jobs: column.json()
   },
 });

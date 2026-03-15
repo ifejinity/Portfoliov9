@@ -1,7 +1,8 @@
 ---
 import "../styles/global.css";
-import Layout from "../layouts/Layout.astro";
 import { db, Experiences } from "astro:db";
+import moment from "moment";
+import Layout from "../layouts/Layout.astro";
 
 const experiences = await db.select().from(Experiences);
 ---
@@ -170,20 +171,23 @@ const experiences = await db.select().from(Experiences);
                         </ul>
                     </div> -->
                     {
-                        experiences.map(({description, title}) => (
+                        experiences.map((exp) => (
                             <div>
                                 <div class="flex justify-between">
-                                    <h3 class="font-medium">{title}</h3>
-                                    <span class="text-slate-400">Present</span>
+                                    <h3 class="font-medium">{exp.title} @{exp.company}</h3>
+                                    <span class="text-slate-400">
+                                        { moment(exp.start_at).format("LL") } - { exp.end_at ? moment(exp.end_at).format("LL") : 'Present' }
+                                    </span>
                                 </div>
                                 <p class="text-slate-600 mt-1">
-                                    {description}
+                                    {exp.description}
                                 </p>
                                 <ul class="list-disc ml-5 text-slate-600 mt-2 space-y-1">
-                                    <li>Designing scalable backend systems</li>
-                                    <li>Building reusable Vue components</li>
-                                    <li>Integrating third-party APIs and services</li>
-                                    <li>Deploying applications to cloud platforms</li>
+                                    {
+                                        exp.jobs.map((job) => (
+                                            <li>{job}</li>
+                                        ))
+                                    }
                                 </ul>
                             </div>
                         ))
