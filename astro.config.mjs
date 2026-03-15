@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: import.meta.env.PUBLIC_APP_URL,
+  site: 'https://jeffreylonzanida2.vercel.app',
   vite: {
       plugins: [
         tailwindcss()
@@ -16,7 +16,6 @@ export default defineConfig({
   },
   adapter: vercel(),
   integrations: [
-    icon(),
     sitemap()
   ],
 });
